@@ -1,0 +1,99 @@
+#root {
+  width: 80vw;
+  margin: auto;
+}
+
+h1 {
+  color: #00BCD4;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.body {
+  width: 80vw;
+}
+
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  height: 90vh;
+  width: 100%;
+
+}
+
+.header {
+  height: auto;
+  text-align: center;
+  width: 100%;
+  font-size: 3rem;
+  display: inline-block;
+}
+
+.flexImage {
+  margin: auto;
+  text-align: center;
+  background-color: #607D8B;
+  flex-grow: 4;
+  overflow: hidden;
+  height: auto;
+  min-height: 50vh;
+  -webkit-box-shadow: 2px 2px 39px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 2px 39px -4px rgba(0,0,0,0.75);
+  box-shadow: 2px 2px 39px -4px rgba(0,0,0,0.75);
+}
+
+.flexArrow {
+  flex-grow: 1;
+  margin: auto 12px;
+  padding: 8px;
+
+}
+.searchBarContainer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  margin: auto 32px;
+  padding: 32px;
+}
+
+.searchBar {
+  width: 80%;
+  height: 32px;
+  margin: auto 32px;
+  border-radius: 3px;
+  background-color: white;
+  color: #191919;
+  border-radius: 5px;
+  transition: border .25s;
+  border: .5px solid rgba(0, 0, 0, .3);
+  transition: all .2s ease-in-out;
+  padding: 2px 12px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.searchBar:focus {
+  transform: scale(1.025, 1.025);
+  outline: none;
+  border: 1px solid #00BCD4;
+}
+
+.imageOverlay {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+  color: white;
+  text-align: center;
+  background: rgba(0,0,0,0);
+  opacity: 0;
+  transition: all .3s;
+  min-height: 50vh;
+}
+
+.imageOverlay:hover {
+    background: rgba(0,0,0,.5);
+    opacity: 1;
+}
