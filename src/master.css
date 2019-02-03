@@ -1,6 +1,7 @@
 #root {
-  width: 80vw;
+  width: 100%;
   margin: auto;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -8,9 +9,7 @@ h1 {
   font-family: 'Open Sans', sans-serif;
 }
 
-.body {
-  width: 80vw;
-}
+
 
 .carouselContainer {
   display: flex;
@@ -29,6 +28,7 @@ h1 {
   width: 100%;
   font-size: 3rem;
   display: inline-block;
+  padding-top: 64px;
 }
 
 .flexImage {
@@ -55,13 +55,19 @@ h1 {
   align-items: center;
   align-content: center;
   justify-content: space-around;
-  margin: auto 32px;
-  padding: 32px;
+  margin: auto;
+  padding: 48px 32px;
+  background: rgba(96,125,139, .5);
+  height: 10vh;
+  border-radius: 5px;
+  -webkit-box-shadow: 6px 10px 33px -6px rgba(0,0,0,0.33);
+  -moz-box-shadow: 6px 10px 33px -6px rgba(0,0,0,0.33);
+  box-shadow: 6px 10px 33px -6px rgba(0,0,0,0.33);
 }
 
 .searchBar {
   width: 80%;
-  height: 32px;
+  height: 48px;
   margin: auto 32px;
   border-radius: 3px;
   background-color: white;
@@ -72,6 +78,7 @@ h1 {
   transition: all .2s ease-in-out;
   padding: 2px 12px;
   font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
 }
 
 .searchBar:focus {
@@ -96,4 +103,41 @@ h1 {
 .imageOverlay:hover {
     background: rgba(0,0,0,.5);
     opacity: 1;
+}
+
+.editIcon {
+  padding: 24px;
+  background: rgba(255,255,255,.3);
+  border-radius: 50%;
+  transition: all .3s;
+}
+
+.editIcon:hover {
+  cursor: pointer;
+  transform: translate(-1px, -3.5px);
+  -webkit-box-shadow: 2px 2px 39px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 2px 39px -4px rgba(0,0,0,0.75);
+  box-shadow: 2px 2px 39px -4px rgba(0,0,0,0.75);
+}
+
+.arrow {
+  padding: 32px;
+  background: rgba(150,150,150,.25);
+  transition: all .3s ease-in-out;
+}
+
+.arrow:hover {
+  cursor: pointer;
+  transform: translate(-.5px, -1.5px);
+  -webkit-box-shadow: 6px 10px 33px -6px rgba(0,0,0,0.33);
+  -moz-box-shadow: 6px 10px 33px -6px rgba(0,0,0,0.33);
+  box-shadow: 6px 10px 33px -6px rgba(0,0,0,0.33);
+}
+
+.left {
+  border-radius: 50% 0 0 50%;
+}
+
+.right {
+  border-radius: 0 50% 50% 0;
 }
