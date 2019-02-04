@@ -35,13 +35,16 @@ h1 {
   margin: auto;
   text-align: center;
   background-color: #607D8B;
-  flex-grow: 4;
+  flex-grow: 2;
   overflow: hidden;
   height: auto;
-  min-height: 50vh;
+  min-height: 75vh;
   -webkit-box-shadow: 2px 2px 39px -4px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 2px 39px -4px rgba(0,0,0,0.75);
   box-shadow: 2px 2px 39px -4px rgba(0,0,0,0.75);
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.5s;
 }
 
 .flexArrow {
@@ -97,7 +100,7 @@ h1 {
   background: rgba(0,0,0,0);
   opacity: 0;
   transition: all .3s;
-  min-height: 50vh;
+  min-height: 75vh;
 }
 
 .imageOverlay:hover {

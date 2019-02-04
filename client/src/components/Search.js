@@ -53,6 +53,8 @@ class Search extends Component {
     }
 
     this.searchImages = this.searchImages.bind(this);
+    this.changeSlide = this.changeSlide.bind(this);
+    this.scaleImage = this.scaleImage.bind(this);
    }
 
 
@@ -61,11 +63,36 @@ class Search extends Component {
     console.log('this is the value hopefully: ', key, ' in case that doesnt work, this is the bar: ', this.searchBar.value);
     getImages(this.searchBar.value).then((res) => {
       console.log('this is the res from getImages: ', res);
-      this.setState({results: res}, () => {
+      this.setState({results: res.results}, () => {
         console.log('this is the new state: ', this.state);
       })
     })
   }
+
+  changeSlide(direction) {
+    if (direction === 'left') {
+        this.setState({
+            slideIndex: this.state.slideIndex ? this.state.slideIndex - 1 : this.state.results.length - 1
+        });
+        console.log('index = ', this.state.slideIndex);
+    }
+    else {
+        this.setState({
+            slideIndex: this.state.slideIndex === this.state.results.length - 1 ? 0 : this.state.slideIndex + 1
+        });
+        console.log('index = ', this.state.slideIndex);
+        console.log(this.imageWindow.getBoundingClientRect().height)
+    }
+  }
+
+  scaleImage() {
+      let imageHeight = this.state.results[this.state.slideIndex].height;
+      let imageWidth = this.state.results[this.state.slideIndex].width;
+      let divHeight = this.imageWindow.getBoundingClientRect().height;
+      let divWidth = this.imageWindow.getBoundingClientRect().width;
+      return imageHeight/imageWidth >= divHeight/divWidth ? 'auto 100%' : '100% auto';
+  }
+
 
   render() {
     const { classes } = this.props;
@@ -96,7 +123,10 @@ class Search extends Component {
               }}>
               <FontAwesomeIcon icon={faChevronLeft} size='3x' style={{color: '#00BCD4'}}  className='arrow left'/>
             </div>
-            <div className='flexImage'>
+            <div className='flexImage' ref={el => this.imageWindow = el} style={{
+                    backgroundImage: this.state.results.length ? `url(${this.state.results[this.state.slideIndex].url})` : null,
+                    backgroundSize: this.state.results.length ? this.scaleImage() : null,
+                }}>
               <div className='imageOverlay'>
                 <FontAwesomeIcon icon={faEdit} size='2x' className='editIcon'/>
                 <FontAwesomeIcon icon={faCrop} size='2x' className='editIcon'/>
