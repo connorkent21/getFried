@@ -20,6 +20,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "images-scraper": "^2.0.11"
+    "images-scraper": "^2.0.11",
+    "jimp": "^0.6.0"
   }
 }
