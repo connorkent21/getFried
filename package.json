@@ -1,34 +1,25 @@
 {
   "name": "getfried",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.14",
-    "@fortawesome/free-solid-svg-icons": "^5.7.1",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-    "@material-ui/core": "^3.9.1",
-    "@material-ui/icons": "^3.0.2",
-    "i": "^0.3.6",
-    "images-scraper": "^2.0.11",
-    "npm": "^6.7.0",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-responsive-carousel": "^3.1.46",
-    "react-scripts": "2.1.3"
-  },
+  "version": "1.0.0",
+  "description": "get fried bitch",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/connorkent21/getFried.git"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "author": "Connor and Jonny",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/connorkent21/getFried/issues"
+  },
+  "homepage": "https://github.com/connorkent21/getFried#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "images-scraper": "^2.0.11"
+  }
 }

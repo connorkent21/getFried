@@ -5,6 +5,8 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import NavBar from './NavBar';
+import { getImages } from '../api';
+
 
 
 const styles = {
@@ -49,10 +51,20 @@ class Search extends Component {
     this.state = {
       results: [],
       slideIndex: 0,
-
     }
+
+    this.searchImages = this.searchImages.bind(this);
    }
 
+
+  async searchImages() {
+    let key = this.searchBar;
+    console.log('this is the value hopefully: ', key, ' in case that doesnt work, this is the bar: ', this.searchBar);
+    console.log('this is the function: ', getImages);
+    getImages('cat').then((res) => {
+      console.log('this is the res from getImages: ', res);
+    })
+  }
 
   render() {
     const { classes } = this.props;
@@ -65,15 +77,22 @@ class Search extends Component {
               GetFried <FontAwesomeIcon icon={faFire} size='1x' style={{marginLeft: '12px'}} />
             </h1>
             <div className='searchBarContainer'>
-              <input type='text' placeholder='Search...' className='searchBar' ref={el => this.searchBar = el} />
-              <Button color='primary' variant='contained' className={classes.button}>
+              <input type='text' placeholder='Search...' className='searchBar' ref={el => this.searchBar = el} onKeyPress={async (e) => {
+                if (e.key === 'Enter') {
+                      await this.SearchImages();
+                      this.forceUpdate();
+                    }
+                }}/>
+              <Button color='primary' variant='contained' className={classes.button} onClick={this.searchImages}>
                 Search<FontAwesomeIcon icon={faSearch} size='lg' style={{marginLeft: '8px'}} />
               </Button>
             </div>
           </div>
 
           <div className='carouselContainer' >
-            <div className='flexArrow' style={{textAlign: 'right'}}>
+            <div className='flexArrow' style={{textAlign: 'right'}} onClick={() => {
+                this.changeSlide('left');
+              }}>
               <FontAwesomeIcon icon={faChevronLeft} size='3x' style={{color: '#00BCD4'}}  className='arrow left'/>
             </div>
             <div className='flexImage'>
