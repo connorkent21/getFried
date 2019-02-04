@@ -105,7 +105,9 @@ class Search extends Component {
               </div>
             </div>
             <div className='flexArrow'>
-              <FontAwesomeIcon icon={faChevronRight} size='3x' style={{color: '#00BCD4'}} className='arrow right'/>
+              <FontAwesomeIcon icon={faChevronRight} size='3x' style={{color: '#00BCD4'}} className='arrow right' onClick={() => {
+                  this.changeSlide('right');
+                }}/>
             </div>
           </div>
         </div>

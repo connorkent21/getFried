@@ -17,9 +17,10 @@ app.get('/express_backend', (req, res) => {
   res.send({ yeet: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
-app.post('/get-images', async (req, res) => {
+app.post('/get-images/:key', async (req, res) => {
+  console.log('this is the req: ', req);
   let results = await bing.list({
-    keyword: req.body.key,
+    keyword: req.params.key,
     num: 10,
     detail: true,
   })

@@ -8,12 +8,9 @@ const headers = {
 };
 
 export async function getImages(key) {
-  let body = {key: key};
-  console.log('this is the body: ', body);
-  let req = await fetch('http://localhost:5000/get-images', {
-    headers,
+  let req = await fetch(`http://localhost:5000/get-images/${key}`, {
     method: 'POST',
-    body: JSON.stringify(body),
+    headers,
   } )
   .catch(err => {
     console.log('error: ', err);
