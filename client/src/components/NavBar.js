@@ -16,7 +16,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getImages } from '../api';
 import { faChevronRight, faChevronLeft, faSearch, faEdit, faCrop, faPalette, faSave, faFire } from '@fortawesome/free-solid-svg-icons'
 
 const styles = theme => ({
@@ -115,6 +116,17 @@ class NavBar extends React.Component {
     this.setState({ mobileMoreAnchorEl: null });
   };
 
+  async searchImages() {
+    let key = this.navSearch;
+    console.log('this is the value hopefully: ', key, ' in case that doesnt work, this is the bar: ', this.navSearch.value);
+    getImages(this.navSearch.value).then((res) => {
+      console.log('this is the res from getImages: ', res);
+      this.props.page.setState({results: res.results}, () => {
+        console.log('this is the new state: ', this.props.page.state);
+      })
+    })
+  }
+
   render() {
     const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes } = this.props;
@@ -179,7 +191,14 @@ class NavBar extends React.Component {
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder="Search…"
+                inputRef={(el) => {
+                  this.navSearch = el;
+                }}
+                onKeyPress={async (e) => {
+                  if (e.key === 'Enter')
+                    await this.searchImages();
+                }}
+                placeholder="Search"
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,

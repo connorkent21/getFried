@@ -99,7 +99,7 @@ class Search extends Component {
     return(
       <MuiThemeProvider theme={theme}>
         <div>
-          <NavBar />
+          <NavBar page={this}/>
           <div className='header'>
             <h1>
               GetFried <FontAwesomeIcon icon={faFire} size='1x' style={{marginLeft: '12px'}} />
