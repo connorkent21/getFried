@@ -64,7 +64,7 @@ app.post('/get-images/:key', async (req, res) => {
     console.log('this is the image we trying to resize: ', image);
     return image.resize(256, 256).getBase64(Jimp.AUTO, (e, img64) => {
       // console.log('this is the base64 version: ', img64);
-      results[0].url = img64;
+      results[0].base64img = img64;
     })
   }).then(newSize => {
     console.log('this is the new image hopefully: ', newSize);

@@ -1,11 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronLeft, faSearch, faEdit, faCrop, faPalette, faSave, faFire } from '@fortawesome/free-solid-svg-icons'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import NavBar from './NavBar';
-import { getImages } from '../api';
+import NavBar from '../NavBar';
+import { getImages } from '../../api';
 
 
 const styles = {
@@ -128,7 +129,9 @@ class Search extends Component {
                     backgroundSize: this.state.results.length ? this.scaleImage() : null,
                 }}>
               <div className='imageOverlay'>
-                <FontAwesomeIcon icon={faEdit} size='2x' className='editIcon'/>
+                <FontAwesomeIcon icon={faEdit} size='2x' className='editIcon'
+                  onClick={() => { console.log('props', this.props );
+                    this.props.history.push(`/editor/${this.state.results[this.state.slideIndex].url}`)}}/>
                 <FontAwesomeIcon icon={faCrop} size='2x' className='editIcon'/>
                 <FontAwesomeIcon icon={faPalette} size='2x' className='editIcon'/>
                 <FontAwesomeIcon icon={faSave} size='2x' className='editIcon'/>
@@ -146,4 +149,4 @@ class Search extends Component {
   }
 }
 
-export default withStyles(styles)(Search);
+export default withRouter(withStyles(styles)(Search));
