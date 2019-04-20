@@ -12,9 +12,9 @@ const routing = (
             <App history />
         )
       }} />
-      <Route path="/editor/:image" render={({history}) => {
+    <Route path="/editor/:image" render={({history}) => {
         return (
-          <Editor history />
+          <Editor history/>
         )
       }} />
     </div>

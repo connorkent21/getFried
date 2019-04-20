@@ -19,3 +19,16 @@ export async function getImages(key) {
   console.log('this is the res: ', res);
   return res;
 }
+
+export async function editImage(key) {
+  let req = await fetch(`http://localhost:5000/edit-image/${key}`, {
+    method: 'POST',
+    headers,
+  } )
+  .catch(err => {
+    console.log('error: ', err);
+  });
+  let res = await req.json();
+  console.log('this is the res: ', res);
+  return res;
+}
